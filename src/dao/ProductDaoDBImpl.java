@@ -38,72 +38,91 @@ public class ProductDaoDBImpl implements ProductDao {
 			throw new Exception(e.getMessage());
 		}
 	}
+
 	@Override
 	public void addProduct(Product p) {
+		Connection conn=null;PreparedStatement ps=null;
 		try{
-			Connection conn = ds.getConnection();
-			PreparedStatement ps = conn.prepareStatement(insertProductSQL);
+			conn = ds.getConnection();
+			ps = conn.prepareStatement(insertProductSQL);
 			ps.setString(1, p.getTitle());
 			ps.setString(2, p.getDescription());
 			ps.setDouble(3, p.getPrice());
 			ps.executeUpdate();
-			ps.close();
-			conn.close();
 		}
 		catch(SQLException e){
 			log.error("can not insert product " + p);
+		}finally{
+			try {
+				if (ps!=null){ps.close();}
+				if (conn!=null){conn.close();}
+			} catch (SQLException e) {
+				log.error("can not close resource "+e.getMessage());
+			}
 		}
 
 	}
 
 	@Override
 	public void deleteProduct(int productId) {
+		Connection conn=null;PreparedStatement ps=null;
 		try{
-			Connection conn = ds.getConnection();
-			PreparedStatement ps = conn.prepareStatement(deleteProductSQL);
+			conn = ds.getConnection();
+			ps = conn.prepareStatement(deleteProductSQL);
 			ps.setInt(1, productId);
 			ps.executeUpdate();
-			ps.close();
-			conn.close();
 		}
 		catch(SQLException e){
 			log.error("can not delete product " +productId);
+		}finally{
+			try {
+				if (ps!=null){ps.close();}
+				if (conn!=null){conn.close();}
+			} catch (SQLException e) {
+				log.error("can not close resource "+e.getMessage());
+			}
 		}
 
 	}
 
 	@Override
 	public List<Product> getAllProducts() {
-		
+		Connection conn=null;PreparedStatement ps=null;ResultSet rs=null;
 		List<Product> products = new ArrayList<Product>();
 		try{
-			Connection conn =ds.getConnection();
-			PreparedStatement ps = conn.prepareStatement(getAllProductsSQL);
-			ResultSet rs = ps.executeQuery();
+			conn =ds.getConnection();
+			ps = conn.prepareStatement(getAllProductsSQL);
+			rs = ps.executeQuery();
 			while(rs.next()){
 				products.add(new Product(rs.getInt("id"),
 									rs.getString("title"),
 									rs.getString("description"),
 									rs.getDouble("price")));
 			}
-			rs.close();
-			ps.close();
-			conn.close();
 			return products;
 		}catch (Exception e){
 			e.printStackTrace();
 			log.error("does not get products!");
 			return null;
+		}finally{
+			try {
+				if (rs!=null){rs.close();}
+				if (ps!=null){ps.close();}
+				if (conn!=null){conn.close();}
+			} catch (SQLException e) {
+				log.error("can not close resource "+e.getMessage());
+			}
 		}
 	}
 
 	@Override
 	public Product getProductById(int productId) {
+		Connection conn=null;PreparedStatement ps=null;ResultSet rs=null;
 		try{
-			Connection conn = ds.getConnection();
-			PreparedStatement ps = conn.prepareStatement(getProductByIdSQL);
+			conn = ds.getConnection();
+			ps = conn.prepareStatement(getProductByIdSQL);
 			ps.setInt(1, productId);
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 			Product p = null;
 			if (rs.next()){
 				p = new Product(rs.getInt("id"),
@@ -111,30 +130,41 @@ public class ProductDaoDBImpl implements ProductDao {
 										rs.getString("description"),
 										rs.getDouble("price"));
 			}
-			rs.close();
-			ps.close();
-			conn.close();
 			return p;
 		}catch (SQLException e){
 			return null;
+		}finally{
+			try {
+				if (rs!=null){rs.close();}
+				if (ps!=null){ps.close();}
+				if (conn!=null){conn.close();}
+			} catch (SQLException e) {
+				log.error("can not close resource "+e.getMessage());
+			}
 		}
 	}
 
 	@Override
 	public void updateProduct(Product p) {
+		Connection conn=null;PreparedStatement ps=null;
 		try{
-			Connection conn = ds.getConnection();
-			PreparedStatement ps = conn.prepareStatement(updateProductSQL);
+			conn = ds.getConnection();
+			ps = conn.prepareStatement(updateProductSQL);
 			ps.setString(1, p.getTitle());
 			ps.setString(2, p.getDescription());
 			ps.setDouble(3, p.getPrice());
 			ps.setInt(4, p.getProductId());
 			ps.executeUpdate();
-			ps.close();
-			conn.close();
 		}
 		catch(SQLException e){
 			log.error("can not update product " + p);
+		}finally{
+			try {
+				if (ps!=null){ps.close();}
+				if (conn!=null){conn.close();}
+			} catch (SQLException e) {
+				log.error("can not close resource "+e.getMessage());
+			}
 		}
 
 
