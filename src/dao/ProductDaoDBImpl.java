@@ -97,6 +97,7 @@ public class ProductDaoDBImpl implements ProductDao {
 				products.add(new Product(rs.getInt("id"),
 									rs.getString("title"),
 									rs.getString("description"),
+									rs.getString("img"),
 									rs.getDouble("price")));
 			}
 			return products;
