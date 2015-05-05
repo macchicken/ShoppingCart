@@ -16,17 +16,18 @@ import org.apache.commons.logging.LogFactory;
  */
 public class DaoFactory {
 
-	private static DaoFactory df;
 	private ProductDao pDao = null;
 	static Log log = LogFactory.getLog(DaoFactory.class);
-//	String classname = this.getClass().getName();
 	private DaoFactory(){
+		getProductDao();
 	}
 	
+	private static class DaoFactoryHolder{
+		private static final DaoFactory INSTANCE = new DaoFactory();
+	}
+
 	public static DaoFactory getInstance(){
-		if (df == null)
-			df = new DaoFactory();
-		return df;
+		return DaoFactoryHolder.INSTANCE;
 	}
 	
 	public ProductDao getProductDao(){
