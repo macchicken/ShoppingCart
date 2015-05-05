@@ -14,7 +14,12 @@
 		$("#cart").load($(this).attr("href"));
 	});
 	$(".remove").click(function(e){
-		e.preventDefault(); 
+		e.preventDefault();
+		var pid=$(this).attr("classid");var found=false;
+		$(".proId").each(function(i,e){
+			if(pid==e.value){found=true;}
+		});
+		if($(".proId").length==0||!found){return false;}
 		$("#cart").load($(this).attr("href"));
 	});
    })
@@ -56,7 +61,7 @@
                <td>${product.price}</td>
                 <td>
                 <a href="${pageContext.request.contextPath}/cartsAjax/add/${product.productId}" class="add">add</a>
-                <a href="${pageContext.request.contextPath}/cartsAjax/remove/${product.productId}" class="remove">remove</a>
+                <a href="${pageContext.request.contextPath}/cartsAjax/remove/${product.productId}" class="remove" classid="${product.productId}">remove</a>
                 </td>
            </tr>
 

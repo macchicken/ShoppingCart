@@ -16,6 +16,7 @@
 				<td>${cartItem.product.title}</td>
 				<td>${cartItem.quantity}</td>
 			</tr>
+			<input type="hidden" value="${cartItem.product.productId}" class="proId"/>
 		</c:forEach>
 
 		<tfoot>
