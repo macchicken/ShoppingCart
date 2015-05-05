@@ -20,6 +20,9 @@ public class ProductDaoMemImpl implements ProductDao {
 		products = new ArrayList<Product>();
 		addProduct(new Product("Web Application Architecture","textbook","webapplication.jpg",79.95));
 		addProduct(new Product("Internet How to Program","textbook","wwwprogramming.jpg",109.95));
+		addProduct(new Product("Design Patterns","GOF textbook","designpatterns.jpg",37.88));
+		addProduct(new Product("Host Your Web Site In The Cloud","textbook","webcloud.jpg",35.96));
+		addProduct(new Product("Head First Servlets and JSP","head first textbook","headfirstservlet.jpg",35.46));
 	}
 	@Override
 	public void addProduct(Product p) {
