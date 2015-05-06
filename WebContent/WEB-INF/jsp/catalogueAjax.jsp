@@ -16,7 +16,7 @@
 	$(".remove").click(function(e){
 		if($(".proId").length==0){return false;}
 		e.preventDefault();
-		var pid=$(this).attr("classid");var found=false;
+		var pid=$(this).attr("productId");var found=false;
 		$(".proId").each(function(i,e){
 			if(pid==e.value){found=true;}
 		});
@@ -62,7 +62,7 @@
                <td>${product.price}</td>
                 <td>
                 <a href="${pageContext.request.contextPath}/cartsAjax/add/${product.productId}" class="add">add</a>
-                <a href="${pageContext.request.contextPath}/cartsAjax/remove/${product.productId}" class="remove" classid="${product.productId}">remove</a>
+                <a href="${pageContext.request.contextPath}/cartsAjax/remove/${product.productId}" class="remove" productId="${product.productId}">remove</a>
                 </td>
            </tr>
 
