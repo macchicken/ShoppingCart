@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style_new.css"/>"  media="screen" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="<c:url value="/resources/js/jquery.min-214.js"/>"></script>
 <script type="text/javascript">
    $(document).ready(function(){
 	$(".add").click(function(e){
@@ -14,12 +14,13 @@
 		$("#cart").load($(this).attr("href"));
 	});
 	$(".remove").click(function(e){
+		if($(".proId").length==0){return false;}
 		e.preventDefault();
 		var pid=$(this).attr("classid");var found=false;
 		$(".proId").each(function(i,e){
 			if(pid==e.value){found=true;}
 		});
-		if($(".proId").length==0||!found){return false;}
+		if(!found){return false;}
 		$("#cart").load($(this).attr("href"));
 	});
    })
