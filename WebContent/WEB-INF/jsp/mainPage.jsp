@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style_new.css"  media="screen" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style_response.css"  media="screen" />
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min-214.js"></script>
@@ -28,6 +28,11 @@
 	$("#flickrsearch").click(function(e){
 		e.preventDefault();
 		var kw=$("#skeyword").val();console.log(kw);
+		if(/[~#^$@.。%&!*]/gi.test(kw))
+		{
+		    alert('special character');
+		    return false;
+		}
 		window.location.href = "restsc/products/search?keyword="+kw;
 	});
    })
