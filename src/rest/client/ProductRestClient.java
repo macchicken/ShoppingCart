@@ -1,9 +1,13 @@
 package rest.client;
 
+import java.util.Iterator;
+import java.util.List;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -29,7 +33,13 @@ public class ProductRestClient {
 		System.out.println(response.getStatus());		
 		// Get product with id 1
 		System.out.println(root.path("1").request().get(Response.class).readEntity(Product.class));
-		System.out.println(root.path("2").request().delete(Response.class).getStatus());
+//		System.out.println(root.path("2").request().delete(Response.class).getStatus());
 		System.out.println(root.path("2").request().get(Response.class).readEntity(Product.class));
+		GenericType<List<Product>> listm = new GenericType<List<Product>>() {};
+		List<Product> result=root.request(MediaType.TEXT_XML).get(listm);
+		Iterator<Product> it=result.iterator();
+		while(it.hasNext()){
+			System.out.println(it.next());
+		}
 	}
 }

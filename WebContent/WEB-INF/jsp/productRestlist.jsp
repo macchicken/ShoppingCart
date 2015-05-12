@@ -11,7 +11,7 @@
 <table border = "1">
 <thead>
 <tr>
-<th>Title</th><th>Description</th><th>Price</th><th>Actions </th>
+<th>Title</th><th>Description</th><th>Price</th><th>icon</th>
 </tr>
 </thead>
 <tbody>
@@ -23,8 +23,7 @@
                <td>${product.description}</td>
                <td>${product.price}</td>
                 <td>
-                <a href="spcing/products/edit/${product.productId}">edit</a>
-                <a href="spcing/products/delete/${product.productId}">delete</a>
+                <img src="${product.imageUrl}" alt="image not available">
                 </td>
            </tr>
 
@@ -32,8 +31,6 @@
 
  </tbody>
 </table>
-
-<a href="spcing/products/new"> Add a new product. </a> <br />
 
 <a href="${pageContext.request.contextPath}/spcing/mainPage"> Back to home</a>
 </body>

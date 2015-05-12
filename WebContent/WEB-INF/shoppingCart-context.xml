@@ -22,6 +22,7 @@
         <security:intercept-url pattern="/spcing/cartsJson" access="hasRole('USER')" />
         <security:intercept-url pattern="/spcing/mainPage" access="hasRole('USER')" />
         <security:intercept-url pattern="/spcing/products" access="hasRole('ROLE_ADMIN')" />
+        <security:intercept-url pattern="/restsc/products" access="hasRole('USER')" />
           
         <security:form-login login-page="/login"
             authentication-failure-url="/loginError"
