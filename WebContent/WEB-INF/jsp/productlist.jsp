@@ -35,6 +35,6 @@
 
 <a href="products/new"> Add a new product. </a> <br />
 
-<a href="${pageContext.request.contextPath}"> Back to home</a>
+<a href="${pageContext.request.contextPath}/spcing/mainPage"> Back to home</a>
 </body>
 </html>

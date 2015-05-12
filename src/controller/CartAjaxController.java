@@ -17,7 +17,7 @@ import dao.DaoFactory;
 import dao.ProductDao;
 
 @Controller
-@RequestMapping("/cartsAjax")
+@RequestMapping("/spcing/cartsAjax")
 @SessionAttributes("cart")
 public class CartAjaxController {
 

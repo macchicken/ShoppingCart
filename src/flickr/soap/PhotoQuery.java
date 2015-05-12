@@ -1,10 +1,13 @@
 package flickr.soap;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.Reader;
-import java.util.Iterator;
-
-import  javax.xml.soap.*;
+import javax.xml.soap.MessageFactory;
+import javax.xml.soap.SOAPBody;
+import javax.xml.soap.SOAPConnection;
+import javax.xml.soap.SOAPConnectionFactory;
+import javax.xml.soap.SOAPElement;
+import javax.xml.soap.SOAPEnvelope;
+import javax.xml.soap.SOAPFactory;
+import javax.xml.soap.SOAPMessage;
+import javax.xml.soap.SOAPPart;
 
 import commons.Constants;
 

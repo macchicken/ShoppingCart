@@ -63,7 +63,7 @@ public class ProductResource {
 		Response res = null;
 		if (productId!=-1){
 			pdao.deleteProduct(productId);
-			res =Response.created(uriInfo.getAbsolutePath()).build();
+			res =Response.noContent().build();
 		}
 		return res;
 	}

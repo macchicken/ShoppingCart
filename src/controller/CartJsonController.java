@@ -22,7 +22,7 @@ import dao.DaoFactory;
 import dao.ProductDao;
 
 @RestController
-@RequestMapping("/cartsJson")
+@RequestMapping("/spcing/cartsJson")
 @SessionAttributes("cart")
 public class CartJsonController {
 
@@ -42,7 +42,7 @@ private final ProductDao pdao = DaoFactory.getInstance().getProductDao();
 		return modelAndView;
 	}
 
-	@RequestMapping(value="/add/{productId}",method = RequestMethod.GET,produces={"application/json", "application/xml"})
+	@RequestMapping(value="/add/{productId}",method = RequestMethod.GET,produces={"application/json"})
 	@ResponseStatus(HttpStatus.OK)
 	public Map<String, Object> add(@PathVariable int productId, Model model, @ModelAttribute("cart") Cart cart){
 		Product p = pdao.getProductById(productId);
@@ -54,7 +54,7 @@ private final ProductDao pdao = DaoFactory.getInstance().getProductDao();
 	}
 
 
-	@RequestMapping(value="/remove/{productId}",method = RequestMethod.GET,produces={"application/json", "application/xml"})
+	@RequestMapping(value="/remove/{productId}",method = RequestMethod.GET,produces={"application/json"})
 	@ResponseStatus(HttpStatus.OK)
 	public Map<String, Object> remove(@PathVariable int productId, Model model,@ModelAttribute("cart") Cart cart){
 		boolean success=false;
@@ -70,7 +70,7 @@ private final ProductDao pdao = DaoFactory.getInstance().getProductDao();
 		return result;
 	}
 	
-	@RequestMapping(value="/getCartItem",method = RequestMethod.GET,produces={"application/json", "application/xml"})
+	@RequestMapping(value="/getCartItem",method = RequestMethod.GET,produces={"application/json"})
 	@ResponseStatus(HttpStatus.OK)
 	public Map<String, Object> add(Model model, @ModelAttribute("cart") Cart cart){
 		Map<String, Object> result=new HashMap<String,Object>();

@@ -102,7 +102,7 @@
 </c:forEach>
     </tbody>
 </table>
-<a href="${pageContext.request.contextPath}"> Back to home</a>
+<a href="${pageContext.request.contextPath}/spcing/mainPage"> Back to home</a>
 </div>
 
 <div id="cart"> 

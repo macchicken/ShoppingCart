@@ -27,7 +27,6 @@
 	                <map>
 	                    <entry key="json" value="application/json" />
 	                    <entry key="html" value="text/html" />
-	                    <entry key="xml" value="application/xml" />
 	                </map>
                 </property>
         </bean>

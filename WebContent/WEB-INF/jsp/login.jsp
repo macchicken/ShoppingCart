@@ -13,7 +13,19 @@
 <body>
 <div class="widget-box">
 	<div class="widget-header">
-	<h5 class="widget-title"><a href="spcing/mainPage" >Welcome to the Shopping Cart example code, G'day mate</a></h5>
+	<h5 class="widget-title">Welcome to the Shopping Cart example code, G'day mate</h5>
+	</div>
+	<div class="widget-body">
+		<div class="widget-main">
+			<c:url var="loginUrl" value="/j_spring_security_check" />
+			<form action="${loginUrl}"  method="post" >
+				<p>Username</p>
+				<input type="text"  class="input-small" id="username" name="username" >
+				<p>Password</p>
+				<input type="password"  class="input-small" id="password" name="password" >
+				<input type="submit" class="btn btn-info btn-sm" value="Login">
+			</form>
+		</div>
 	</div>
 </div>
 </body>

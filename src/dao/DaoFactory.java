@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.List;
 import java.util.Properties;
 
 import model.Product;
@@ -58,7 +57,7 @@ public class DaoFactory {
 	public static void main(String[] argv){
 		DaoFactory df = DaoFactory.getInstance();
 		ProductDao pDao = df.getProductDao();
-		List<Product> products=pDao.getAllProducts();
+//		List<Product> products=pDao.getAllProducts();
 //		Log log = LogFactory.getLog(DaoFactory.class);
 		
 		Product newBook = new Product("The Children Act","Ian MacEwan's new novel", 17.64);

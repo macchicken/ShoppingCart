@@ -30,6 +30,6 @@ public class ProductRestClient {
 		// Get product with id 1
 		System.out.println(root.path("1").request().get(Response.class).readEntity(Product.class));
 		System.out.println(root.path("2").request().delete(Response.class).getStatus());
-		System.out.println(root.path("2").request().get(Response.class).getStatus());
+		System.out.println(root.path("2").request().get(Response.class).readEntity(Product.class));
 	}
 }

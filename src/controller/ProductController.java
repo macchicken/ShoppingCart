@@ -20,7 +20,7 @@ import dao.DaoFactory;
 import dao.ProductDao;
 
 @Controller
-@RequestMapping("/products")
+@RequestMapping("/spcing/products")
 public class ProductController {
 
 	private final ProductDao pdao = DaoFactory.getInstance().getProductDao();
