@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("currentUser")
 public class LoginController {
 
+	@RequestMapping("/login")
+	public String login(Model model) {
+		return "login";
+	}
+
 	@RequestMapping("/loginError")
     public String loginError(Model model) {
         return "loginError";
@@ -21,7 +26,7 @@ public class LoginController {
 
 	@RequestMapping("/logout")
 	public String logout(Model model) {
-		return "/";
+		return "/login";
 	}
 
 	@RequestMapping("/spcing/mainPage")

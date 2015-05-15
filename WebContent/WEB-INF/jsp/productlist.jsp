@@ -8,14 +8,14 @@
 <title>All products</title>
 </head>
 <body>
+<div id="catalogue">
 <table border = "1">
 <thead>
 <tr>
-<th>Title</th><th>Description</th><th>Price</th><th>Actions </th>
+<th>Title</th><th>Description</th><th>Price</th><th>Picture</th>
 </tr>
 </thead>
 <tbody>
-
 <c:forEach var="product" items= "${products}"
 	varStatus="productCount">
             <tr>
@@ -29,12 +29,11 @@
            </tr>
 
 </c:forEach>
-
  </tbody>
 </table>
 
 <a href="spcing/products/new"> Add a new product. </a> <br />
-
+</div>
 <a href="${pageContext.request.contextPath}/spcing/mainPage"> Back to home</a>
 </body>
 </html>
