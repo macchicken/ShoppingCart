@@ -14,11 +14,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("currentUser")
 public class LoginController {
 
-	@RequestMapping("/login")
-    public String login(Model model) {
-        return "login";
-    }
-
 	@RequestMapping("/loginError")
     public String loginError(Model model) {
         return "loginError";

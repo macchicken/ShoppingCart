@@ -17,7 +17,7 @@
 	</div>
 	<div class="widget-body">
 		<div class="widget-main">
-			<c:url var="loginUrl" value="/j_spring_security_check" />
+			<c:url var="loginUrl" value="#" />
 			<form action="${loginUrl}"  method="post" >
 				<p>Username</p>
 				<input type="text"  class="input-small" id="username" name="username" >

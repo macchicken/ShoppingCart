@@ -9,6 +9,6 @@
 <body>
 Sorry mate, wrong password or user name
 
-<a href="${pageContext.request.contextPath}/login"> Back to login</a>
+<a href="${pageContext.request.contextPath}"> Back to login</a>
 </body>
 </html>
