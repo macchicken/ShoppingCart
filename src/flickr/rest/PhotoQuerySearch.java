@@ -47,6 +47,7 @@ public class PhotoQuerySearch {
 				System.out.println("small picture: "+temp.getNamedItem("url_sq").getTextContent());
 			}
 		}catch (Exception e){
+			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}finally{
 			if (urlConnection!=null){
@@ -58,8 +59,8 @@ public class PhotoQuerySearch {
 	
 	public static void main(String argv[]){	
 
-		System.setProperty("http.proxyHost", "www-cache.usyd.edu.au");
-		System.setProperty("http.proxyPort","8080");
+//		System.setProperty("http.proxyHost", "www-cache.usyd.edu.au");
+//		System.setProperty("http.proxyPort","8080");
 		
 		PhotoQuerySearch pq = new PhotoQuerySearch();
 		pq.call();

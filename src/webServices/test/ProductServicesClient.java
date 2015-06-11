@@ -3,7 +3,7 @@ import java.util.List;
 
 import javax.xml.ws.WebServiceRef;
 public class ProductServicesClient {
-	@WebServiceRef(wsdlLocation="http://localhost:10090/shoppingCart/productServices?wsdl")
+	@WebServiceRef(wsdlLocation="http://localhost:10080/ShoppingCart/soap/productServices?WSDL")
 	
 	public static void main(String[] argv){
 		
